@@ -1,0 +1,3 @@
+Shampo|haircare|200|Pantene|haircare|5
+Shampo|haircare|200|Loreal|haircare|4
+Shampo|haircare|200|Clear|haircare|6
