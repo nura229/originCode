@@ -1,3 +1,5 @@
 laylaStore|clothes|Dokki
 maha|clothes|Haram
 sahar|makeup|Dokki
+laPoir|online|haram
+laPoir|food|Gizza
