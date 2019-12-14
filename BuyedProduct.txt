@@ -3,7 +3,6 @@ Shampo|2|Loreal|Mesadk
 Shampo|1|Loreal|Sharm
 Shampo|2|Loreal|Dokki
 Shampo|2|Loreal|Haram 
-Shampo|2|Clear|Giza
 Shampo|2|Clear|Kafr elshikh 
 Shampo|4|Pantene|Haram 
 Shampo|3|Clear|Maddi
@@ -12,3 +11,12 @@ Shampo|1|Loreal|Haram
 Shampo|1|Clear|Octobar
 Shampo|4|Clear|Octobar
 Shampo|3|Clear|Sheikh Zayed
+Shampo|1|Pantene|Luxur
+Shampo|1|Clear|elSadat
+Shampo|1|Clear|elSadat
+Shampo|2|Loreal|haram
+Shampo|2|Loreal|Alex
+Shampo|1|Clear|Dokki
+Shampo|2|Clear|Haram
+Shampo|1|Clear|Alex1
+Shampo|1|Clear|ALexandria
