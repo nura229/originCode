@@ -1,52 +1,36 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-
+@SuppressWarnings("unused")
 public class ProductOfStoreowner {
+
+private String storeOwnerName;
 private String name;
 private String category;
 private String price;
 private String productquantity;
 private String brandname;
 private String brandcategory;
+
    ArrayList<ProductOfStoreownerEntity> ProductOfStoreownerDatabase = new ArrayList<ProductOfStoreownerEntity>();
-public ProductOfStoreowner(String Pname,String Pcategory,String Pprice,String bname,String bcategory, String productquantity) throws Exception {
+   
+public ProductOfStoreowner(String storeOwnerName,String Pname,String Pcategory,String Pprice,String bname,String bcategory, String productquantity) throws Exception {
+   
+   this.storeOwnerName=storeOwnerName;
    this.name=Pname;
    this.category=Pcategory;
    this.price=Pprice;
    this.productquantity=productquantity;
    this.brandname=bname;
    this.brandcategory=bcategory;
-   ProductOfStoreownerDatabase = readFromFile();
+   
+   ProductOfStoreownerDatabase = FileUsage.product_sOwnerReadFromFile(ProductOfStoreownerDatabase);
 }
 public ProductOfStoreowner() throws Exception {
-	ProductOfStoreownerDatabase = readFromFile();
+	
+	   ProductOfStoreownerDatabase = FileUsage.product_sOwnerReadFromFile(ProductOfStoreownerDatabase);
 }
 
-public ArrayList<ProductOfStoreownerEntity> readFromFile() throws Exception{
-	ArrayList<ProductOfStoreownerEntity> productstore = new ArrayList<ProductOfStoreownerEntity>();
-	BufferedReader reader = new BufferedReader(new FileReader(new File("ProductsOfStoreowner.txt")));
-	String line;
-	while((line = reader.readLine()) != null) {
-		String[] arr = line.split("\\|");
-		productstore.add(new ProductOfStoreownerEntity(arr[0], arr[1], arr[2], arr[3], arr[4] ,arr[5] ));
-	}
-	return productstore;
-}
 
-public static void usingBufferedWritter(String textToAppend) throws IOException //Dii el function ele zadet
-{
-    BufferedWriter writer = new BufferedWriter(new FileWriter("ProductsOfStoreowner.txt", true));  
-    writer.write(textToAppend);
-    writer.newLine();   //Add new line
-    writer.close();
-}
-
-public void addstoreproductinfo( String pname, String pcategory,String pprice,String bname,String bcategory,String pproductquantity) throws Exception {
+public void addstoreproductinfo( String storeOwnerName,String pname, String pcategory,String pprice,String bname,String bcategory,String pproductquantity) throws Exception {
    
 	boolean FoundinSystem1=false;
 	boolean FoundinSystem2=false;
@@ -66,8 +50,7 @@ public void addstoreproductinfo( String pname, String pcategory,String pprice,St
 			      FoundinSystem2=true; 
 			      
 			 }
-		}
-	
+	}
 	if(FoundinSystem1==false || FoundinSystem2==false ) {
 		System.out.println("The Product or Brand is not found in system");
 		return;
@@ -79,11 +62,8 @@ public void addstoreproductinfo( String pname, String pcategory,String pprice,St
 	   		   return;
 	   	      }
     	 }
-	    usingBufferedWritter(pname + "|" + pcategory + "|" + pprice   + "|" + bname + "|" + bcategory + "|" + pproductquantity);
+ 	   FileUsage.usingBufferedWritter(storeOwnerName + "|" +pname + "|" + pcategory + "|" + pprice   + "|" + bname + "|" + bcategory + "|" + pproductquantity,"ProductsOfStoreowner.txt");
 	    System.out.println("Product is added to store with a brand");
 	  }
    }
 }
-	   
-   
-

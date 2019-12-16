@@ -4,3 +4,5 @@ laptop|electronices|200|offfer
 Tshirt|clothes|200|no_offfer
 tables|furniture|3000|offfer
 Shampo|haircare|200|offfer
+Shampo|haircare|50|no_offer
+chocolate|food|20|no_offer
