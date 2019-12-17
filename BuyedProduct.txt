@@ -1,3 +1,15 @@
-mai_ibrahim|nada_hatem|Shampo|1|Clear|190|Haram
-nesma_thabet|salma2|chocolate|1|Moro|19.0|ll
-nada_hatem|salma2|chocolate|2|Moro|14.0|Haram
+Shampo|2|Loreal|122 Dokki
+Shampo|2|Loreal|Mesadk
+Shampo|1|Loreal|Sharm
+Shampo|2|Loreal|Dokki
+Shampo|2|Loreal|Haram 
+Shampo|2|Clear|Giza
+Shampo|2|Clear|Kafr elshikh 
+Shampo|4|Pantene|Haram 
+Shampo|3|Clear|Maddi
+Shampo|2|Loreal|122 Dokki
+Shampo|1|Loreal|Haram
+Shampo|1|Clear|Octobar
+Shampo|4|Clear|Octobar
+Shampo|3|Clear|Sheikh Zayed
+Shampo|1|Pantene|Luxur

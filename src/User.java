@@ -9,11 +9,9 @@ public class User extends systemUser {
 	@SuppressWarnings("resource")
 	public void userbuyproduct() throws Exception{
 		   Scanner userInput3 = new Scanner(System.in);
-		   System.out.println("Your username is:");
+		   System.out.println("Account name is:");
 		   String Uname = userInput3.nextLine();
-		   System.out.println("Store owner account's name is:");
-			String Sname = userInput3.nextLine();
-		   System.out.println("name of product is:");
+		   System.out.println("name of products is:");
 		   String Pname = userInput3.nextLine();
 		   System.out.println("amount of products is:" );
 		   String bamount = userInput3.nextLine();
@@ -23,7 +21,10 @@ public class User extends systemUser {
 		   String pprice = userInput3.nextLine();
 		   System.out.println("Shipping address is:" );
 		   String shippingaddress = userInput3.nextLine();
-		   new BuyedProduct().buyproduct(Uname,Sname,Pname, bamount, bname, pprice,shippingaddress);
+		   new BuyedProduct().buyproduct(Uname,Pname, bamount, bname, pprice,shippingaddress);
 		}
+
+
+		}
+
 	
-}

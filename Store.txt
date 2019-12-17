@@ -1,3 +1,3 @@
-laylaStore|nada_hatem|clothes|Dokki
-maha|nada_hatem|clothes|Haram
-sahar|alaa_el_lol|makeup|Dokki
+laylaStore|clothes|Dokki
+maha|clothes|Haram
+sahar|makeup|Dokki
