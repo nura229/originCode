@@ -12,11 +12,6 @@ public void wantaddstore()throws Exception {
 
 	    Scanner userInput2 = new Scanner(System.in);
 		System.out.println("Name of store is:");
-	  /*  String sname = userInput2.nextLine();
-	    System.out.println("Type of store is:" );
-	    String stype = userInput2.nextLine();
-	    System.out.println("location of store is:" );
-	    String slocation = userInput2.nextLine();*/
 	    System.out.println("Wait for the admin to accept this may take time"); 
 }
 @SuppressWarnings({ "resource" })
@@ -33,7 +28,7 @@ public void addnewstore()throws Exception {
 @SuppressWarnings({ "resource" })
 public void addproducttostoreowner() throws Exception{
 	Scanner userInput3 = new Scanner(System.in);
-	
+
 	System.out.println("Name of Store owner is:");
     String storeOwnerName = userInput3.nextLine();
 	System.out.println("Name of products is:");
@@ -54,31 +49,17 @@ public void addproducttostoreowner() throws Exception{
 @SuppressWarnings("resource")
 public void wantToAddCollaborator() throws Exception {
 	Scanner input = new Scanner(System.in);
+	System.out.println("What is your Username? ");
+	System.out.println("StoreOwner username: ");
+	String storeOwnerName=input.nextLine();
 	System.out.println("Enter the information of your Collaborator ");
 	System.out.println("UserName: ");
 	String collaboratorName=input.nextLine();
 	System.out.println("Password: ");
 	String password=input.nextLine();
 	System.out.println("Your Collaborator account is added succesfully!");
-	FileUsage.usingBufferedWritter(collaboratorName + "|" + password , "Collaborator.txt");
+	FileUsage.usingBufferedWritter(storeOwnerName + "|" + collaboratorName , "Collaborator.txt");
+	FileUsage.usingBufferedWritter(storeOwnerName + "|" + collaboratorName + "|" + password , "Collaborator.txt");
 }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import sprint3.numberOfBoughtProducts;
+import sprint4.numberOfBoughtProducts;
 
 public class BuyedProduct {
 protected String name;
