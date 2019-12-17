@@ -3,5 +3,7 @@ airpods|mobileaccessories
 Moro|food
 Loreal|haircare
 Pantene|haircare
-Clear|haircareh&m|clothes
+Clear|haircare
 hp|electronices
+lenovo|electronices
+iphone|electronices
