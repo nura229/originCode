@@ -3,6 +3,8 @@
 /BrandEntity.class
 /BuyedProduct.class
 /BuyedProductEntity.class
+/Collaborator.class
+/FileUsage.class
 /Main.class
 /ProductEntity.class
 /ProductOfStoreowner.class
@@ -13,4 +15,5 @@
 /User.class
 /UserEntity.class
 /product.class
+/sprint3/
 /systemUser.class

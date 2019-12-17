@@ -1,19 +1,17 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.Scanner;
+import sprint3.StatisticsStoreOwner;
+import sprint3.UserWantsViewProduct;
+
 public class Main {
 
+		@SuppressWarnings({ "unused", "resource" })
 		public static void main(String[] args) throws Exception{
         	User u=new User();
         	StoreOwner s=new StoreOwner();
-        	boolean storewant=false;
-        	product p = new product();
         	Adminstrator a=new Adminstrator();
+        	Collaborator c= new Collaborator();
+        	product p = new product();
+        	boolean storewant=false;
         	Scanner userInput = new Scanner(System.in);
         	while(true) {
         	System.out.println("For register enter 1: ");
@@ -36,53 +34,33 @@ public class Main {
         	}
         	if(want1==3){
         		a.register(3);
-        		
-        		
         	}
         	}
         	else if(want==2)
         	{
             System.out.println("To return to home page Enter 0: ");
-        	System.out.println("For login as a user enter 1: ");
-        	System.out.println("For login as a store owner enter 2: ");
-        	System.out.println("For login as an adminstrator enter 3: ");
+        	System.out.println("For login as a User enter 1: ");
+        	System.out.println("For login as a Store owner enter 2: ");
+        	System.out.println("For login as an Adminstrator enter 3: ");
+        	System.out.println("For login as a Collaborator enter 4: ");
         	int want2=userInput.nextInt();
         	if(want2==0) {
-    			System.out.println("    To the Home Page   ");
+    			System.out.println("   To the Home Page   ");
     		}
         	if(want2==1){
         		u.login(1);
+        		System.out.println("To return to home page Enter 0: ");
         		System.out.println("To view products  Enter 1: ");
         		System.out.println("To buy a product  Enter 2: ");
-        		System.out.println("To return to home page Enter 0: ");
         		int userwant=userInput.nextInt();
         		if(userwant==0) {
-        			System.out.println("    To the Home Page   ");
+        			System.out.println("   To the Home Page   ");
         		}
         		if(userwant==1) {
-        			int count=0;
-        			BufferedReader bro;
-        			bro = new BufferedReader(new FileReader("count.txt"));
-                	String line1;
-                	line1 = bro.readLine();
-                	bro.close();
-                    count = Integer.parseInt(line1);
-        			count++;
-        			line1 = Integer.toString(count);
-        			File file = new File ("count.txt");
-        			FileWriter w = new FileWriter(file);
-        			w.write(line1);
-        			w.close();
-        			BufferedReader br = new BufferedReader(new FileReader(new File("ProductOfStoreowner.txt")));
-                	String line;
-                	while((line = br.readLine()) != null) {
-                		System.out.println(line);
-                	}
-                	//count=count++;
+        			new UserWantsViewProduct().wantstoviewproduct();
         		}
-        		if(userwant==2) {
+                if(userwant==2) {
         			u.userbuyproduct();
-        			
         		}
         		
         	}
@@ -102,9 +80,10 @@ public class Main {
         		System.out.println("To Add new store Enter 1: ");
         		System.out.println("To Add new product to store Enter 2: ");
         		System.out.println("To view statistics  Enter 3: ");
+        		System.out.println("To Add new Collaborator Enter 4:");
         		int want3=userInput.nextInt();
         		if(want3==0) {
-        			System.out.println("    To the Home Page   ");
+        			System.out.println("   To the Home Page   ");
         		}
         		if(want3==1) {
         			storewant=true;
@@ -114,17 +93,10 @@ public class Main {
         			s.addproducttostoreowner();
         		}
         		if(want3==3) {
-        			BufferedReader br = new BufferedReader(new FileReader(new File("count.txt")));
-                	String line;
-                	line = br.readLine();
-                	System.out.println("Number of Users viewed the products is " + line);
-                	//////
-                	BufferedReader br2;
-                	   br2 = new BufferedReader(new FileReader("NumberBoughtProduct.txt"));
-                	   String line4;
-                	   line4 = br2.readLine();
-                	   System.out.println("Number of user buy product: " +line4);
-                	/////
+        			new StatisticsStoreOwner().usersstatistics();
+        		}
+        		if(want3==4) {
+        			s.wantToAddCollaborator();
         		}
         		
         	}
@@ -139,7 +111,7 @@ public class Main {
         		System.out.println("To see new statistics Enter 3:");
         		int want4=userInput.nextInt();
         		if(want4==0) {
-        			System.out.println("    To the Home Page   ");
+        			System.out.println("   To the Home Page   ");
         		}
         		if(want4==1) {
         			a.addproducttosystem();
@@ -155,6 +127,10 @@ public class Main {
         		
         		
             }
+        	   else if(want2==4){
+           		c.login(4);
+           		c.useAsStoreOwner();;
+        	   }
            }
           }
 		}

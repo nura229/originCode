@@ -6,6 +6,7 @@ public class User extends systemUser {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	@SuppressWarnings("resource")
 	public void userbuyproduct() throws Exception{
 		Scanner userInput3 = new Scanner(System.in);
 		System.out.println("name of products is:");

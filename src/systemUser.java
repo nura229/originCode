@@ -1,37 +1,33 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import sprint3.NumberOfAddedAccounts;
 
 public class systemUser {
 
 	private ArrayList<UserEntity> userDatabase = new ArrayList<UserEntity>();
 	private ArrayList<UserEntity> AdminDatabase = new ArrayList<UserEntity>();
 	private ArrayList<UserEntity> StoreODatabase = new ArrayList<UserEntity>();
+	protected ArrayList<UserEntity> collaboratorDatabase = new ArrayList<UserEntity>();
 	
-        protected String nameOremail;
-        protected String password;
-        protected String conf;
-       // public File myObj=new File("Accounts.txt");
+	private Scanner input;
+	protected String nameOremail;
+    protected String password;
+    protected String conf;
+    
+    public systemUser(String name,String pass,String confirm) throws Exception {
+    	   this.nameOremail=name;
+    	   this.password=pass;
+    	   this.conf=confirm;
+    	   
+    	}
         public systemUser() throws Exception {
-      	  userDatabase = readFromFile(userDatabase,"UserAccounts.txt");
-      	  AdminDatabase = readFromFile( AdminDatabase,"AdminAccounts.txt");
-       	  StoreODatabase = readFromFile(StoreODatabase,"StoreOwnerAccounts.txt");
+        	  userDatabase = FileUsage.userReadFromFile(userDatabase,"UserAccounts.txt");
+         	  AdminDatabase = FileUsage.userReadFromFile( AdminDatabase,"AdminAccounts.txt");
+          	  StoreODatabase = FileUsage.userReadFromFile(StoreODatabase,"StoreOwnerAccounts.txt");
+              collaboratorDatabase = FileUsage.userReadFromFile(collaboratorDatabase,"Collaborator.txt");
+       	  
 		}
-		private Scanner input;
-		public static void usingBufferedWritter(String textToAppend,String FileName) throws IOException 
-		{
-		    BufferedWriter writer = new BufferedWriter(new FileWriter(FileName, true));
-		    writer.write(textToAppend);  
-		    writer.newLine();   //Add new line
-		    writer.close();
-		}
-        public void register(int x) throws IOException{
+        public void register(int x) throws Exception{
         	
     	  input = new Scanner(System.in);
     	  System.out.println("Registration Page");
@@ -43,7 +39,6 @@ public class systemUser {
     	  System.out.printf("Confirm Password: ");
     	  conf=input.nextLine();
     	  int length=password.length();
-    	  //File myObj=new File("Accounts.txt");
     	  if(length<6){
     		  System.out.println("Too short password,password must be more than 6 characters");
     		  System.out.printf("Password too short,Re-enter Password: ");
@@ -60,23 +55,10 @@ public class systemUser {
                 	  }
                   }
                   userDatabase.add(new UserEntity(nameOremail, password));
-                  usingBufferedWritter(nameOremail + "|" + password, "UserAccounts.txt");
+                 FileUsage.usingBufferedWritter(nameOremail + "|" + password, "UserAccounts.txt");
                   System.out.println("Register is done");
-                  //////////
-                  int count=0;
-        			BufferedReader br;
-        			br = new BufferedReader(new FileReader("NumberOfAddedUsersAccounts.txt"));
-                	String line1;
-                	line1 = br.readLine();
-                	br.close();
-                    count = Integer.valueOf(line1);
-        			count++;
-        			line1 = Integer.toString(count);
-        			File file = new File ("NumberOfAddedUsersAccounts.txt");
-        			FileWriter w = new FileWriter(file);
-        			w.write(line1);
-        			w.close();
-                  //////////
+                  new NumberOfAddedAccounts().numberOf_addedUsersAccounts();
+
     		  }
     			  else if(x==2)
     			  {
@@ -87,24 +69,9 @@ public class systemUser {
                     	  }
                       }
                       StoreODatabase.add(new UserEntity(nameOremail, password));
-                      usingBufferedWritter(nameOremail + "|" + password, "StoreOwnerAccounts.txt");
+                      FileUsage.usingBufferedWritter(nameOremail + "|" + password, "StoreOwnerAccounts.txt");
                       System.out.println("Register is done");
-                      /////////
-                      int count=0;
-            			BufferedReader br;
-            			br = new BufferedReader(new FileReader("NumberOfAddedStoreOwnerAccounts.txt"));
-                    	String line1;
-                    	line1 = br.readLine();
-                    	br.close();
-                        count = Integer.valueOf(line1);
-            			count++;
-            			line1 = Integer.toString(count);
-            			File file = new File ("NumberOfAddedStoreOwnerAccounts.txt");
-            			FileWriter w = new FileWriter(file);
-            			w.write(line1);
-            			w.close();
-                      
-                      /////////
+                      new NumberOfAddedAccounts().numberOf_addedStoreOwnerAccounts();
     			  }
     			  else if (x==3)
     			  {
@@ -115,7 +82,7 @@ public class systemUser {
                     	  }
                       }
                       AdminDatabase.add(new UserEntity(nameOremail, password));
-                      usingBufferedWritter(nameOremail + "|" + password, "AdminAccounts.txt");
+                      FileUsage.usingBufferedWritter(nameOremail + "|" + password, "AdminAccounts.txt");
                       System.out.println("Register is done");
     			  }
     		  }
@@ -123,16 +90,10 @@ public class systemUser {
     			  System.out.println("Password not matched, Re-Enter password");
     		  }
        }
-        public ArrayList<UserEntity> readFromFile(ArrayList<UserEntity> user,String FileName) throws Exception{
-        	BufferedReader reader = new BufferedReader(new FileReader(new File(FileName)));
-        	String line;
-        	while((line = reader.readLine()) != null) {
-        		String[] arr = line.split("\\|");
-        		user.add(new UserEntity(arr[0], arr[1]));
-        	}
-			return user;
-        }
-      public void login(int y) throws Exception {
+    
+      @SuppressWarnings("unused")
+	public void login(int y) throws Exception {
+    	  Collaborator c= new Collaborator();
     	  input = new Scanner(System.in);
            System.out.println("Enter the username or email: ");
            nameOremail=input.nextLine();
@@ -171,5 +132,16 @@ public class systemUser {
   	  System.out.println("Email or Password is wrong");
   	  login(3);
   	   }
+    	  else if (y==4)
+     	   {
+     	  for(int i = 0 ; i < collaboratorDatabase.size(); ++i) {
+     		  if(collaboratorDatabase.get(i).getUsername().equals(nameOremail) && collaboratorDatabase.get(i).getPassword().equals(password)) {
+     			  System.out.println("You are logged in");
+     			  return;
+     		  }  
+     	  }
+     	  System.out.println("Email or Password is wrong");
+     	  login(4);
+     	   }
 }
 }
