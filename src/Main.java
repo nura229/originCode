@@ -1,6 +1,6 @@
 import java.util.Scanner;
-import sprint3.StatisticsStoreOwner;
-import sprint3.UserWantsViewProduct;
+import sprint4.StatisticsStoreOwner;
+import sprint4.UserWantsViewProduct;
 
 public class Main {
 

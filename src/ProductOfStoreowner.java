@@ -62,7 +62,7 @@ public void addstoreproductinfo( String storeOwnerName,String pname, String pcat
 	   		   return;
 	   	      }
     	 }
- 	   FileUsage.usingBufferedWritter(storeOwnerName + "|" +pname + "|" + pcategory + "|" + pprice   + "|" + bname + "|" + bcategory + "|" + pproductquantity,"ProductsOfStoreowner.txt");
+ 	   FileUsage.usingBufferedWritter(storeOwnerName +  "|" +pname + "|" + pcategory + "|" + pprice   + "|" + bname + "|" + bcategory + "|" + pproductquantity,"ProductsOfStoreowner.txt");
 	    System.out.println("Product is added to store with a brand");
 	  }
    }
