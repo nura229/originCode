@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 public class Brand {
+	product p=new product();
 	@SuppressWarnings("unused")
 	private
 	String bname;
