@@ -6,3 +6,4 @@ Pantene|haircare
 Clear|haircare
 hp|electronices
 lenovo|electronices
+iphone|electronices
