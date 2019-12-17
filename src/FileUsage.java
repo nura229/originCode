@@ -77,7 +77,7 @@ public class FileUsage {
 		   	String line;
 		   	while((line = reader.readLine()) != null) {
 		   		String[] arr = line.split("\\|");
-		   		buyedProduct.add(new BuyedProductEntity(arr[0], arr[1], arr[2], arr[3]));
+		   		buyedProduct.add(new BuyedProductEntity(arr[0], arr[1], arr[2], arr[3],arr[4],arr[5]));
 		   	}
 				return buyedProduct;
 	}

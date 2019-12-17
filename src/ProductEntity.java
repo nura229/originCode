@@ -7,7 +7,7 @@ public class ProductEntity {
    this.name = name;
    this.category = category;
    this.price = price;
-   this.setOffer(offer);
+   this.offer=offer;
 }
 
  public String getName() {
@@ -26,13 +26,14 @@ public class ProductEntity {
 
   public String getPrice() {
     return price;
-  }
-
-public String getOffer() {
-	return offer;
 }
-
-public void setOffer(String offer) {
-	this.offer = offer;
+  public void setPrice(String price) {
+    this.price = price;
+}
+  public String getOffer() {
+    return offer;
+}
+  public void setOffer(String offer) {
+    this.offer = offer;
 }
 }

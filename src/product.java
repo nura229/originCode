@@ -1,13 +1,12 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class product {
+public class product  {
 protected
   String name;
   String category;
   String price;
   String offer;
-  
   ArrayList<ProductEntity> prodctDatabase = new ArrayList<ProductEntity>();
   
   public product(String Pname,String Pcategory,String Pprice,String Poffer) throws Exception {

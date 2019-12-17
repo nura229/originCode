@@ -1,4 +1,4 @@
-public class BrandEntity {
+public class BrandEntity  {
 	private String category;
 	private String name;
 	public BrandEntity(String name, String category) {

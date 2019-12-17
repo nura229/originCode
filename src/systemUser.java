@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import sprint4.NumberOfAddedAccounts;
+import sprint3.NumberOfAddedAccounts;
 
 public class systemUser {
 
-	private ArrayList<UserEntity> userDatabase = new ArrayList<UserEntity>();
+	public ArrayList<UserEntity> userDatabase = new ArrayList<UserEntity>();
 	private ArrayList<UserEntity> AdminDatabase = new ArrayList<UserEntity>();
-	private ArrayList<UserEntity> StoreODatabase = new ArrayList<UserEntity>();
+	public ArrayList<UserEntity> StoreODatabase = new ArrayList<UserEntity>();
 	protected ArrayList<UserEntity> collaboratorDatabase = new ArrayList<UserEntity>();
 	
 	private Scanner input;
