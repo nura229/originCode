@@ -1,12 +1,12 @@
 import java.util.Scanner;
-import sprint4.StatisticsStoreOwner;
-import sprint4.UserWantsViewProduct;
+import sprint3.StatisticsStoreOwner;
+import sprint3.UserWantsViewProduct;
 
 public class Main {
 
 		@SuppressWarnings({ "unused", "resource" })
 		public static void main(String[] args) throws Exception{
-        	User u=new User();
+			User u=new User();
         	StoreOwner s=new StoreOwner();
         	Adminstrator a=new Adminstrator();
         	Collaborator c= new Collaborator();
@@ -80,7 +80,8 @@ public class Main {
         		System.out.println("To Add new store Enter 1: ");
         		System.out.println("To Add new product to store Enter 2: ");
         		System.out.println("To view statistics  Enter 3: ");
-        		System.out.println("To Add new Collaborator Enter 4:");
+        		System.out.println("To buy a product  Enter 4: ");
+        		System.out.println("To Add new Collaborator Enter 5:");
         		int want3=userInput.nextInt();
         		if(want3==0) {
         			System.out.println("   To the Home Page   ");
@@ -96,6 +97,9 @@ public class Main {
         			new StatisticsStoreOwner().usersstatistics();
         		}
         		if(want3==4) {
+        			 s.storeownerbuyproduct();
+        		}
+        		if(want3==5) {
         			s.wantToAddCollaborator();
         		}
         		
@@ -128,8 +132,8 @@ public class Main {
         		
             }
         	   else if(want2==4){
-           		c.login(4);
-           		c.useAsStoreOwner();;
+           		c.CollaboratoerLogin();
+           		c.useAsStoreOwner();
         	   }
            }
           }

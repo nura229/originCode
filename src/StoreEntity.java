@@ -1,5 +1,5 @@
 
-public class StoreEntity {
+public class StoreEntity  {
 	public StoreEntity(String name, String type , String location) {
 		this.location = location;
 		this.type = type;
